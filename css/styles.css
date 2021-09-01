@@ -9,6 +9,20 @@ root styles
 	--light-color: rgba(250, 86, 82, 0.15);
 	--transition: all 0.2s ease-in;
 }
+/*********************
+universal styles
+*********************/
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+
+/*********************
+search section styles
+*********************/
+#search-section {
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url(/images/search-bg.jpg) center/cover no-repeat;
+}
 
 /***************
 spinner styles  
@@ -103,9 +117,6 @@ spinner styles
 		opacity: 0;
 	}
 }
-/***************
-root styles  
-***************/
 /***************
 root styles  
 ***************/
