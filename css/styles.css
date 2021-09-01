@@ -1,0 +1,114 @@
+/***************
+root styles  
+***************/
+:root {
+	--primary-color: #ffffff;
+	--secondary-color: #ff3a3a;
+	--brand-primary-color: #fb4c47;
+	--brand-secondary-color: #fa5652;
+	--light-color: rgba(250, 86, 82, 0.15);
+	--transition: all 0.2s ease-in;
+}
+
+/***************
+spinner styles  
+***************/
+.spinner {
+	position: relative;
+	width: 40px;
+	height: 40px;
+	position: relative;
+	border: 7px solid #fa5652;
+	border-left: 7px solid #a1a4a1;
+	border-top: 7px solid #a1a4a1;
+	border-radius: 50%;
+	background: #fff;
+	animation: keepRotating 0.7s linear infinite;
+}
+
+.spinner-bg {
+	position: absolute;
+	border-radius: 50%;
+	z-index: -1;
+	width: 40px;
+	height: 40px;
+	background: #fa5652;
+}
+
+.spinner-bg-1 {
+	animation: fade 2.5s linear infinite;
+}
+
+.spinner-bg-2 {
+	animation: fade 2.5s linear 1.25s infinite;
+}
+
+@keyframes keepRotating {
+	0% {
+		transform: rotate(0deg);
+	}
+	25% {
+		transform: rotate(180deg);
+	}
+	50% {
+		transform: rotate(270deg);
+	}
+	75% {
+		transform: rotate(315deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes fade {
+	10% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	20% {
+		transform: scale(1.1);
+		opacity: 0.9;
+	}
+	30% {
+		transform: scale(1.2);
+		opacity: 0.8;
+	}
+	40% {
+		transform: scale(1.3);
+		opacity: 0.7;
+	}
+	50% {
+		transform: scale(1.4);
+		opacity: 0.6;
+	}
+	60% {
+		transform: scale(1.5);
+		opacity: 0.5;
+	}
+	70% {
+		transform: scale(1.6);
+		opacity: 0.4;
+	}
+	80% {
+		transform: scale(1.7);
+		opacity: 0.3;
+	}
+	90% {
+		transform: scale(1.8);
+		opacity: 0.2;
+	}
+	100% {
+		transform: scale(1.9);
+		opacity: 0;
+	}
+}
+/***************
+root styles  
+***************/
+/***************
+root styles  
+***************/
+/***************
+root styles  
+***************/
