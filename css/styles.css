@@ -24,6 +24,31 @@ search section styles
 		url(/images/search-bg.jpg) center/cover no-repeat;
 }
 
+.search-wrapper {
+	background: #ffffff;
+	padding: 5px;
+	border-radius: 40px;
+	width: 340px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.search-wrapper input {
+	background: none;
+	outline: none;
+	border: none;
+	padding: 0 19px;
+}
+
+.search-wrapper button {
+	border: none;
+	background: #fa5652;
+	padding: 5px 10px;
+	border-radius: 50%;
+	color: white;
+}
+
 /***************
 spinner styles  
 ***************/

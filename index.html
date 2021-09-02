@@ -51,12 +51,30 @@
 					Books are your only best friend.
 				</p>
 				<h1 class="text-light mb-4">Get Every Books Details Here</h1>
-				<div>
+				<div class="search-wrapper">
 					<input type="text" id="search-field" />
 					<button id="search-btn">
 						<i class="fas fa-search"></i>
 					</button>
 				</div>
+				<!-- error message -->
+				<p
+					id="error-message-container"
+					class="bg-light p-1 rounded-pill text-danger mt-2 d-none"
+				>
+					<i
+						class="
+							fas
+							fa-times
+							bg-danger
+							text-light
+							shadow
+							p-2
+							rounded-pill
+						"
+					></i>
+					<span></span>
+				</p>
 			</section>
 			<!-- end of search section -->
 
@@ -79,50 +97,9 @@
 				<!-- books container -->
 				<div
 					id="books-container"
-					class="row row-cols-1 row-cols-lg-2 g-4"
+					class="row row-cols-1 row-cols-lg-3 g-4"
 				>
-					<!-- single card -->
-					<div class="col">
-						<article
-							class="
-								single-book
-								border
-								rounded
-								shadow
-								p-3
-								h-100
-								row row-cols-2
-							"
-						>
-							<!-- card-left-side -->
-							<div class="col">
-								<div class="wrapper text-center">
-									<img
-										src="https://covers.openlibrary.org/b/id/554106-M.jpg"
-										alt="book image"
-										class="img-fluid shadow-lg rounded"
-									/>
-								</div>
-							</div>
-							<!-- card-right-side -->
-							<div class="col">
-								<div class="wrapper">
-									<h4 class="mb-0">JavaScript</h4>
-									<p class="text-muted mt-0">
-										by Mark Manson Lorem ipsum dolor sit
-										amet consectetur adipisicing elit.
-										Nihil, odit.
-									</p>
-									<p class="my-1">Fist Published: 1994</p>
-									<p>Published by: Goldmine Printing</p>
-									<button class="btn btn-dark">
-										Know More
-									</button>
-								</div>
-							</div>
-						</article>
-					</div>
-					<!-- end of single card -->
+					<!-- cards here -->
 				</div>
 
 				<!-- spinner -->
