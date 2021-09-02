@@ -81,6 +81,9 @@ const clearPrevData = () => {
 	// clearing previously showed error message
 	hideElement(resultDetails);
 
+	// clearing bg-icon if showed
+	hideElement(document.getElementById('bg-icon'));
+
 	// clearing error-icon if showed
 	hideElement(errorIcon);
 };
@@ -103,7 +106,6 @@ const displayBooks = (booksArray, numOfBooksFound) => {
 		    <article
 				class="
 					book-card
-					border
 					rounded
 					d-flex
 					flex-column
@@ -118,31 +120,27 @@ const displayBooks = (booksArray, numOfBooksFound) => {
 						top-wrapper
 						p-2
 						row row-cols-2
-						align-items-center
+						align-items-start
 					"
 				>
 
 					<!-- top-left -->
 					<div class="col">
-						<div class="wrapper text-center">
-							<img
-								class="img-fluid rounded"
-								src="${
-									book.cover_i
-										? 'https://covers.openlibrary.org/b/id/' +
-										  book.cover_i +
-										  '-M.jpg'
-										: 'images/book-cover.png'
-								}"
-								alt="book-cover"
-							/>
+						<div style="height: 200px; overflow: hidden" class="img-wrapper">
+						<img src="${
+							book.cover_i
+								? 'https://covers.openlibrary.org/b/id/' +
+								  book.cover_i +
+								  '-M.jpg'
+								: '/images/book-cover.png'
+						}" alt="book-image" class="img-fluid">
 						</div>
 					</div>
 
 					<!-- top-right -->
 					<div class="col align-self-start">
 						<div class="wrapper">
-							<h4 class="mb-0 text-light">${book.title}</h4>
+							<h5 class="book-title mb-0 text-light fw-bold">${book.title}</h5>
 							<h6 class="text-light text-capitalize">${
 								book.subtitle ? book.subtitle : ''
 							}</h6>
@@ -164,12 +162,13 @@ const displayBooks = (booksArray, numOfBooksFound) => {
 						px-4
 						py-2
 						text-light
+						text-center
 					"
 				>
-					<p class="my-2 text-center">First Published: ${
+					<p class="my-2">First Published: ${
 						book.first_publish_year ? book.first_publish_year : 'NA'
 					}</p>
-					<p class="publish text-center">Published By</p>
+					<p class="publish">Published By</p>
 					<p>${getString(book.publisher)}.</p>
 				</div>
 				
