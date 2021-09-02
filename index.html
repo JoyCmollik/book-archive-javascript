@@ -5,6 +5,11 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Book Gallery | Get Info</title>
+		<link
+			rel="shortcut icon"
+			href="images/favicon.svg"
+			type="image/x-icon"
+		/>
 		<!-- Google fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -47,17 +52,17 @@
 				"
 			>
 				<!-- section title -->
-				<p class="text-warning mb-1">
-					Books are your only best friend.
-				</p>
-				<h1 class="text-light mb-4">Get Every Books Details Here</h1>
+				<p class="text-warning mb-1">Books are your true friends</p>
+				<h1 class="text-light mb-4 text-center">
+					Get Every Books Details Here
+				</h1>
 				<div class="search-wrapper">
 					<input type="text" id="search-field" />
 					<button id="search-btn">
 						<i class="fas fa-search"></i>
 					</button>
 				</div>
-				<!-- error message -->
+				<!-- error message for search field -->
 				<p
 					id="error-message-container"
 					class="bg-light p-1 rounded-pill text-danger mt-2 d-none"
@@ -116,6 +121,16 @@
 					<div class="spinner"></div>
 					<div class="spinner-bg spinner-bg-1"></div>
 					<div class="spinner-bg spinner-bg-2"></div>
+				</div>
+
+				<!-- error icon -->
+				<div class="wrapper text-center">
+					<img
+						id="error-icon"
+						class="img-fluid d-none"
+						src="images/404nodatas.svg"
+						alt="error-icon"
+					/>
 				</div>
 			</section>
 			<!-- end of books section -->

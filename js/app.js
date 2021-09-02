@@ -1,4 +1,4 @@
-// fetching elements from html
+// fetching elements from html //
 const searchField = document.getElementById('search-field');
 const searchBtn = document.getElementById('search-btn');
 const resultDetails = document.getElementById('result-details');
@@ -7,8 +7,9 @@ const spinner = document.getElementById('spinner');
 const errorMessageContainer = document.getElementById(
 	'error-message-container'
 );
+const errorIcon = document.getElementById('error-icon');
 
-// functions
+// functions //
 const loadBooks = async (keyword) => {
 	const res = await fetch(
 		` https://openlibrary.org/search.json?q=${keyword}`
@@ -23,6 +24,7 @@ const loadBooks = async (keyword) => {
 		displayBooks(data.docs, data.numFound);
 	} else {
 		showErrorMessage('No data found!');
+		errorIcon.classList.remove('d-none');
 	}
 };
 
@@ -43,14 +45,44 @@ const updateResultStatus = (numOfResults) => {
 
 const getString = (receivedArray) => {
 	// checking if array is empty
-	if (!receivedArray.length) {
+	if (!Array.isArray(receivedArray) || !receivedArray.length) {
 		return 'NA';
+	} else {
+		let resultString = '';
+		receivedArray.forEach((name, index) => {
+			// showing only five publishers, if amount is bigger
+			if (index < 5) {
+				resultString += name + ' | ';
+			}
+		});
+
+		return resultString.slice(0, resultString.length - 3);
 	}
+};
 
-	let resultString = '';
-	receivedArray.forEach((name) => (resultString += name + ' | '));
+const showErrorMessage = (message) => {
+	errorMessageContainer.classList.remove('d-none');
+	errorMessageContainer.lastElementChild.innerText = message;
+};
 
-	return resultString.slice(0, resultString.length - 3);
+const hideElement = (element) => {
+	if (!element.classList.contains('d-none')) {
+		element.classList.add('d-none');
+	}
+};
+
+const clearPrevData = () => {
+	// clearing booksContainer
+	booksContainer.innerHTML = '';
+
+	// clearing previously showed error message
+	hideElement(errorMessageContainer);
+
+	// clearing previously showed error message
+	hideElement(resultDetails);
+
+	// clearing error-icon if showed
+	hideElement(errorIcon);
 };
 
 const displayBooks = (booksArray, numOfBooksFound) => {
@@ -71,8 +103,8 @@ const displayBooks = (booksArray, numOfBooksFound) => {
 		    <article
 				class="
 					book-card
-					shadow
 					border
+					rounded
 					d-flex
 					flex-column
 					justify-content-between
@@ -94,7 +126,7 @@ const displayBooks = (booksArray, numOfBooksFound) => {
 					<div class="col">
 						<div class="wrapper text-center">
 							<img
-								class="img-fluid shadow"
+								class="img-fluid rounded"
 								src="${
 									book.cover_i
 										? 'https://covers.openlibrary.org/b/id/' +
@@ -110,10 +142,13 @@ const displayBooks = (booksArray, numOfBooksFound) => {
 					<!-- top-right -->
 					<div class="col align-self-start">
 						<div class="wrapper">
-							<h4 class="mb-0">${book.title}</h4>
-							<h6>${book.subtitle ? book.subtitle : ''}</h6>
-							<p class="text-muted mt-0">
-								by ${getString(book.author_name)}.
+							<h4 class="mb-0 text-light">${book.title}</h4>
+							<h6 class="text-light text-capitalize">${
+								book.subtitle ? book.subtitle : ''
+							}</h6>
+							<p class="text-muted mt-0"><span class="brand-color">by</span> ${getString(
+								book.author_name
+							)}.
 							</p>
 							<button class="btn btn-dark">
 								Know More
@@ -128,15 +163,14 @@ const displayBooks = (booksArray, numOfBooksFound) => {
 						bottom-wrapper
 						px-4
 						py-2
-						bg-dark
-						bg-opacity-75
 						text-light
 					"
 				>
-					<p class="my-1">First Published: ${
+					<p class="my-2 text-center">First Published: ${
 						book.first_publish_year ? book.first_publish_year : 'NA'
 					}</p>
-					<p>Published by: ${getString(book.publisher)}.</p>
+					<p class="publish text-center">Published By</p>
+					<p>${getString(book.publisher)}.</p>
 				</div>
 				
 			</article>
@@ -146,27 +180,7 @@ const displayBooks = (booksArray, numOfBooksFound) => {
 	});
 };
 
-const showErrorMessage = (message) => {
-	errorMessageContainer.classList.remove('d-none');
-	errorMessageContainer.lastElementChild.innerText = message;
-};
-
-const clearPrevData = () => {
-	// clearing booksContainer
-	booksContainer.innerHTML = '';
-
-	// clearing previously showed error message
-	if (!errorMessageContainer.classList.contains('d-none')) {
-		errorMessageContainer.classList.add('d-none');
-	}
-
-	// clearing previously showed error message
-	if (!resultDetails.classList.contains('d-none')) {
-		resultDetails.classList.add('d-none');
-	}
-};
-
-// Event Listeners
+// Event Listeners //
 searchBtn.addEventListener('click', () => {
 	// clearing prev search data if available
 	clearPrevData();

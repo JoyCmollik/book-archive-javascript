@@ -13,14 +13,19 @@ root styles
 universal styles
 *********************/
 body {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Poppins', sans-serif;
+	background: #121212;
+}
+
+.brand-color {
+	color: var(--brand-secondary-color);
 }
 
 /*********************
 search section styles
 *********************/
 #search-section {
-	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+	background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),
 		url(/images/search-bg.jpg) center/cover no-repeat;
 }
 
@@ -46,6 +51,22 @@ search section styles
 	background: #fa5652;
 	padding: 5px 10px;
 	border-radius: 50%;
+	color: white;
+}
+
+/***************
+card styles  
+***************/
+.bottom-wrapper {
+	background: #1f1b24;
+}
+
+.publish {
+	width: 40%;
+	margin: 5px auto;
+	background: #332940;
+	padding: 5px 10px;
+	border-radius: 10px;
 	color: white;
 }
 
@@ -142,9 +163,3 @@ spinner styles
 		opacity: 0;
 	}
 }
-/***************
-root styles  
-***************/
-/***************
-root styles  
-***************/
